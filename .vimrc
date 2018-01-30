@@ -38,7 +38,7 @@ set foldlevel=99
 
 " Enable utf
 set encoding=utf-8
-
+highlight ColorColumn ctermbg=gray
 
 "Correct indentation python
 au BufNewFile,BufRead *.py
@@ -49,8 +49,9 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+    \ set colorcolumn=80
 
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.html,*.css,*.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
@@ -94,4 +95,10 @@ map <C-n> :NERDTreeToggle<CR>
 "set numbering
 set nu
 "enable system clipboard
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
+
+" next tab
+map  <S-Left> :tabp<CR>
+" prev tab
+map  <S-Right> :tabn<CR>
+
