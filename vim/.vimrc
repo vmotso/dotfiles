@@ -16,6 +16,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
+Plugin 'morhetz/gruvbox'
+Plugin 'yggdroot/indentline'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -62,10 +64,12 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 " avoid extraneous whitespace
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-"Set Space as leader key
-let mapleader=" "
-
-colorscheme peachpuff
 "look pretty well
 let python_highlight_all=1
 set nu
+
+" indentLine
+let g:indentLine_char = '┆' 
+" UI/Theme config
+set bg=dark
+colorscheme gruvbox
