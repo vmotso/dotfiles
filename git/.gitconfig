@@ -1,6 +1,6 @@
 [user]
 	email = vitalii.motso@gmail.com
-	name = MotsoVitalii
+	name = vitalii-motso 
 
 [alias]
    st = status
@@ -10,3 +10,5 @@
    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [push]
        default = simple
+[core]
+    editor = "vim"
