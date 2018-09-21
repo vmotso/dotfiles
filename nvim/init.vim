@@ -1,75 +1,67 @@
-set nocompatible              " required
-filetype off                  " required
+" ----------------------------------------------------------------------------
+" PLUGINS
+" ----------------------------------------------------------------------------
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'scrooloose/syntastic'
+Plug 'shougo/deoplete.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'morhetz/gruvbox'
-Plugin 'elzr/vim-json'
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+call plug#end()
 
-" ...
+" ----------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" ----------------------------------------------------------------------------
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"gruvbox______________________________________________________________________
 
-syntax on
-set tags=./tags;$HOME
-" Enable folding with the spacebar
-nnoremap <space> za
-
-nmap <F8> :TagbarToggle<CR>
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-
-"Correct indentation python
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-    \ set colorcolumn=80
-
-au BufNewFile,BufRead *.js,*.html,*.css,*.yml,*.json
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
-
-" define bad whitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-
-" avoid extraneous whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Enable utf
-set encoding=utf-8
-highlight ColorColumn term=reverse cterm=NONE ctermfg=NONE ctermbg=4 gui=NONE guifg=NONE guibg=blue
-highlight ColorColumn ctermbg=Blue
-
-"Set Space as leader key
-let mapleader=" "
-set t_Co=256
-"look pretty well
-let python_highlight_all=1
-set nu
 colorscheme gruvbox
 set bg=dark
+
+"python-mode__________________________________________________________________
+
+let g:pymode_python = 'python3'							" set python
+let g:pymode_options_max_line_length = 120					
+let g:python3_host_prog = '/home/vmotso/Documents/virtuals/neovim/bin/python' 	" use virenv python
+
+"deoplete_____________________________________________________________________
+
+let g:deoplete#enable_at_startup = 1 						" Use deoplete.
+
+"ctags_____________________________________________________________________
+
+set tags=./tags;$HOME								" will look in current dir and up until HOME
+
+" ----------------------------------------------------------------------------
+" OPTIONS
+" ----------------------------------------------------------------------------
+
+set nu 										" set number on
+set encoding=utf8           							" UTF-8 by default
+set autoindent              							" Carry over indenting from previous line
+set autoread                							" Don't bother me hen a file changes
+set history=200             							" How many lines of history to save
+
+" ----------------------------------------------------------------------------
+" KEY MAPS
+" ----------------------------------------------------------------------------
+nnoremap ; 		:
+nnoremap <F8>		:TagbarToggle<CR>
+nnoremap <leader>Q	:qa!<CR>
+nnoremap <leader>W	:wqa!<CR>
+nnoremap <leader>c 	:g/pdb.set_trace()$/d<CR>
+nnoremap <leader>f	*ggn:noh<CR>
+nnoremap <leader>l	:noh<CR>
+nnoremap <leader>p	"+p
+nnoremap <leader>s	:vsp 
+vnoremap //		y/<C-R>"<CR>
+vnoremap ; 		:
+vnoremap <C-r>		"hy:%s/<C-r>h//g<left><left>
+vnoremap <leader>p	"+p
+vnoremap <leader>y	"+y
