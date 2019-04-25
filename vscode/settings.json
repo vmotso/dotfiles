@@ -1,0 +1,10 @@
+{
+    "workbench.startupEditor":"none",
+    "window.zoomLevel": 1,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.enableNeovim": true,
+    "vim.camelCaseMotion.enable": true,
+    "telemetry.enableTelemetry": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.toggleLineBlame": false
+}
