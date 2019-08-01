@@ -1,13 +1,5 @@
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-Plug 'morhetz/gruvbox'
-" Initialize plugin system
-
-call plug#end()
-
 syntax on
+set number
 
 
 "Correct indentation python
@@ -36,14 +28,3 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 set encoding=utf-8
 highlight ColorColumn term=reverse cterm=NONE ctermfg=NONE ctermbg=4 gui=NONE guifg=NONE guibg=blue
 highlight ColorColumn ctermbg=Blue
-
-
-" ----------------------------------------------------------------------------
-"  " PLUGIN SETTINGS
-"  "
-"  ----------------------------------------------------------------------------
-
-"gruvbox______________________________________________________________________
-
-colorscheme gruvbox
-set bg=dark
