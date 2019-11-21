@@ -1,10 +1,24 @@
 {
-    "workbench.startupEditor":"none",
-    "window.zoomLevel": 1,
-    "vim.neovimPath": "/usr/bin/nvim",
     "vim.enableNeovim": true,
-    "vim.camelCaseMotion.enable": true,
-    "telemetry.enableTelemetry": false,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.toggleLineBlame": false
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "editor.fontSize": 14,
+    "editor.cursorStyle": "line-thin",
+    "editor.cursorBlinking": "smooth",
+    "explorer.sortOrder": "type",
+    "files.trimFinalNewlines": true,
+    "terminal.integrated.fontSize": 14,
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "100"
+    ],
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--follow-imports=silent",
+        "--show-column-numbers",
+        "--package=server.terraform",
+        "--package=server.costmgr.terraform"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 0,
+    "explorer.confirmDelete": false
 }
